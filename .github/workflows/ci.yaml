@@ -35,7 +35,7 @@ permissions:
 jobs:
   quality:
     name: Quality gates (reusable)
-    uses: 0451-software/reusable-workflows/.github/workflows/python-quality-gates.yml@v1.x
+    uses: 0451-software/reusable-workflows/.github/workflows/python-quality-gates.yml@v1
     with:
       python_version: "3.11"
 
