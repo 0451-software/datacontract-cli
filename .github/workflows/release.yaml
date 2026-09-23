@@ -8,6 +8,12 @@ permissions:
 
 name: Release
 jobs:
+  # `test` calls ci.yaml which in turn delegates ruff lint, ruff format, uv
+  # build, and the datacontract --version test gates to the
+  # 0451-software python-quality-gates reusable workflow at @v1.x. The
+  # indirection keeps this file thin: changing a gate only requires editing
+  # ci.yaml, not every consumer (release.yaml, plus any other caller that
+  # might be added later — for example, dependabot-managed PRs).
   test:
     uses: ./.github/workflows/ci.yaml
     secrets: inherit
